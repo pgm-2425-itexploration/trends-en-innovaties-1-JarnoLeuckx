@@ -5,9 +5,9 @@ import "./App.css";
 
 function App() {
   const [notes, setNotes] = useState([]);
-  const [isAccessibleMode, setIsAccessibleMode] = useState(false); // Beheert of de toegankelijkheidsmodus aan of uit is
+  const [isAccessibleMode, setIsAccessibleMode] = useState(false); 
 
-  // Functie om een nieuwe notitie toe te voegen
+  
   const addNote = (newNote) => {
     if (newNote.trim()) {
       setNotes([
@@ -17,7 +17,7 @@ function App() {
     }
   };
 
-  // Functie om de voltooiing van een notitie te schakelen
+  
   const toggleNoteCompletion = (id) => {
     setNotes(
       notes.map((note) =>
@@ -26,19 +26,17 @@ function App() {
     );
   };
 
-  // Functie om een notitie te verwijderen
   const deleteNote = (id) => {
     setNotes(notes.filter((note) => note.id !== id));
   };
 
-  // Functie voor toetsenbordnavigatie (indien toegankelijkheidsmodus is ingeschakeld)
   const handleKeyDown = (e) => {
     if (isAccessibleMode) {
       if (e.key === "Enter") {
-        addNote(e.target.value); // Voegt een notitie toe bij indrukken van Enter
+        addNote(e.target.value); 
       }
       if (e.key === " ") {
-        toggleNoteCompletion(e.target.id); // Markeer notitie als voltooid bij spatie
+        toggleNoteCompletion(e.target.id); 
       }
     }
   };
